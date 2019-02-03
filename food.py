@@ -1,6 +1,9 @@
-import random
+#!/usr/bin/env python3
 
-DIMENSION = 60
+import random
+from constants import Constants
+
+DIMENSION = Constants.DIMENSION
 
 class Food:
     def __init__(self, unavailable=[]):

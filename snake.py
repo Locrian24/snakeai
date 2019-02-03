@@ -1,9 +1,12 @@
+#!/usr/bin/env python3
+
 import random
 from food import Food
+from constants import Constants
 
-VELOCITY = 10
-DIMENSION = 60
-SCREEN_SIZE = DIMENSION*10
+VELOCITY = Constants.VELOCITY
+DIMENSION = Constants.DIMENSION
+SCREEN_SIZE = Constants.SCREEN_SIZE
 
 class BodyPart:
     def __init__(self, position, ancestor=None):
@@ -95,7 +98,7 @@ class Snake:
         if (future_x, future_y) in tail_pos:
             return True
 
-        if not (0 <= future_x <= SCREEN_SIZE and 0 <= future_y <= SCREEN_SIZE):
+        if not (0 <= future_x < SCREEN_SIZE and 0 <= future_y < SCREEN_SIZE):
             print(self.head.pos[0], ":", self.head.pos[1])
             return True
 
@@ -109,12 +112,3 @@ class Snake:
             pos_list.append(t.pos)
 
         return pos_list
-
-# if __name__ == "__main__":
-#     snake = Snake()
-#     snake.move()
-#     snake.move()
-#
-#     print(snake.head.pos)
-#     for t in snake.tail:
-#         print(t.pos)
