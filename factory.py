@@ -5,12 +5,9 @@
 class PlayerFactory:
     def __init__(self):
         self.default = "human"
-        self.choices = ["human", "bfs", "dfs", "genetic", "nn", "super"]
+        self.choices = ["human", "astar", "genetic", "dnn", "super"]
 
     def createPlayer(self, type):
-        if type == "bfs":
-            #import bfs
-            return ["bfs"]#, bfs.play]
-        else:
-            #import human
-            return ["human"]#, human.play]
+        if type == "human":
+            from players.human import Human
+            return ["human", Human()]

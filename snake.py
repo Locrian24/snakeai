@@ -48,22 +48,22 @@ class Snake:
         self.tail = []
         self.lifetime = 1
         self.alive = True
-        self.current_direction = (0, 1)
+        self.current_direction = (1, 0)
 
         self.food = Food()
 
         #loading tail with 3 -- start len at 4
-        temp = self.head
-        for i in range(0,3):
-            tail_x, tail_y = temp.pos
-            tail_x -= 10
-
-            new = BodyPart((tail_x, tail_y), temp)
-            self.tail.append(new)
-
-            temp = new
-
-        self.len += 3
+        # temp = self.head
+        # for i in range(0,3):
+        #     tail_x, tail_y = temp.pos
+        #     tail_x -= 10
+        #
+        #     new = BodyPart((tail_x, tail_y), temp)
+        #     self.tail.append(new)
+        #
+        #     temp = new
+        #
+        # self.len += 3
 
     def move(self):
         future_x, future_y = self.head.future_path(self.current_direction)
@@ -73,7 +73,7 @@ class Snake:
         if future_x == self.food.pos[0] and future_y == self.food.pos[1]:
             self.eat()
 
-        temp = self.tail[self.len - 3]
+        #temp = self.tail[self.len - 3]
         for t in reversed(self.tail):
             if t.ancestor:
                 t.pos = t.ancestor.pos
@@ -86,8 +86,13 @@ class Snake:
 
         #add head duplicate to tail list
         temp = BodyPart(self.head.pos, self.head)
-        self.tail[0].ancestor = temp
-        self.tail.insert(0, temp)
+        if self.tail:
+            self.tail[0].ancestor = temp
+            self.tail.insert(0, temp)
+        else:
+            self.tail = [temp]
+
+        self.len += 1
 
 
     def set_direction(self, direction):
