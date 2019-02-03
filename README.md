@@ -5,11 +5,15 @@ Base game is controlled by various "players":
   - Human: human controlled
 
   (Not yet implemented: )
-  - BFS & DFS pathfinders (seperate)
+  - A* pathfinder
   - Genetic Algorithm
   - DNN (Deep Neural Network)
   - Hamiltonian cycling
-  - The SuperPlayer: a combination of all AI players for maximum performance
+  - The SuperPlayer: a combination of all AI players based on Coding Bullet's SnakeFusion (linked at bottom)
 
 
 <b>To run in terminal: python3 snakeai.py <player_model> </b>
+
+
+Coding Bullet's SnakeFusion:
+  <i>https://github.com/Code-Bullet/SnakeFusion</i>
