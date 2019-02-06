@@ -1,10 +1,14 @@
 # snakeai
 Side project for learning machine learning through the game Snake, written in Python 3.7.5, implementing Pygame (1.9.4)
+Note: Python 3.7 and Pygame will be needed to run the snake program
 
-<b>To run in terminal: python3 snakeai.py -p <player_model> </b>
+To run in terminal:
+```
+python3 snakeai.py -p <player_model>
+```
 
 Base game is controlled by various "players":
-  - Human: human controlled
+  - Human (<human>): human controlled
 
   (Not yet implemented: )
   - A* pathfinder

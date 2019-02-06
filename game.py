@@ -3,8 +3,9 @@
 import sys
 import pygame
 import random
-from snake import Snake
-from constants import Constants
+
+from base.snake import Snake
+from base.constants import Constants
 
 DIMENSION = Constants.DIMENSION
 SCREEN_SIZE = Constants.SCREEN_SIZE
@@ -23,40 +24,46 @@ class Game:
         self.snake = Snake()
 
         while self.snake.alive:
-            new_direction = None
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
 
                 if event.type == pygame.KEYDOWN:
+                    #KEY PRESS -- human model = input for direction
                     player.user_input(event)
 
-            new_direction = self.player.move()
+            #THIS IS WHERE THE NEW DIRECTION IS SET FROM THE PLAYER MODEL
+            direction = self.player.action
 
-            if new_direction:
-                self.snake.set_direction(new_direction)
+            self.snake.set_direction(direction)
 
             pygame.time.Clock().tick(Constants.FPS)
             self.SCREEN.fill((255,255,255))
             pygame.display.set_caption("SNAKE SCORE: {}".format(self.snake.len))
 
-
+            #For all non-human player models, new_direction should be set every move
+            #That is, player.action is set
             self.snake.move()
 
             self.draw_objects(self.snake)
             pygame.display.update()
-            self.player.reset()
+            self.player.frame_update()
 
         pygame.quit()
         sys.exit()
 
     def draw_objects(self, s):
+        h_pos = s.head.pos
         objects_pos = s.give_positions()
         color = (0, 255, 0)
+        red = (255, 0, 0)
 
         for p in objects_pos:
             rect = pygame.Rect(p, (PIXEL_SIZE, PIXEL_SIZE))
-            pygame.draw.rect(self.SCREEN, color, rect)
+            if p is not h_pos:
+                pygame.draw.rect(self.SCREEN, color, rect)
+            else:
+                pygame.draw.rect(self.SCREEN, red, rect)
 
-            color = (0,0,0)
+            color = (0, 0, 0)
