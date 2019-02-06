@@ -8,7 +8,8 @@ python3 snakeai.py -p <player_model>
 ```
 
 Base game is controlled by various "players":
-  - Human (<human>): human controlled
+  - HumanPlayer (\<human\>):    human controlled
+  - RandomPlayer (\<random\>):  randomly moves
 
   (Not yet implemented: )
   - A* pathfinder
