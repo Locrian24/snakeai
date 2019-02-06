@@ -3,7 +3,7 @@
 import random
 from pygame.locals import * #MUST BE INCLUDED TO HANDLE USER INPUT
 
-from constants import Constants
+from base.constants import Constants
 
 """
     IMPORTANT:
