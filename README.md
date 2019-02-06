@@ -4,11 +4,12 @@ Note: Python 3.7 and Pygame will be needed to run the snake program
 
 To run in terminal:
 ```
-python3 snakeai.py -p <player_model>
+python3 main.py -p <player_model>
 ```
 
 Base game is controlled by various "players":
-  - Human (<human>): human controlled
+  - HumanPlayer (\<human\>):    human controlled
+  - RandomPlayer (\<random\>):  randomly moves
 
   (Not yet implemented: )
   - A* pathfinder
