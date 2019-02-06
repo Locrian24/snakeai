@@ -19,7 +19,7 @@
 class PlayerFactory:
     def __init__(self):
         self.default = "human"
-        self.choices = ["human", "random"] #add to when new model is being implemented
+        self.choices = ["human", "random", "bfs"] #add to when new model is being implemented
 
     #type of player_model inputted is then imported and the class is returned
     def createPlayer(self, type):
@@ -29,3 +29,6 @@ class PlayerFactory:
         elif type == "random":
             from players.random import RandomPlayer
             return ["random", RandomPlayer()]
+        elif type == "bfs":
+            from players.bfs import BfsPlayer
+            return ["BFS", BfsPlayer()]

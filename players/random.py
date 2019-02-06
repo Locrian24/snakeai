@@ -16,7 +16,7 @@ class RandomPlayer:
     def __init__(self):
         self.action = random.choice( Constants.DIRECTIONS )
 
-    def frame_update(self):
+    def frame_update(self, map, head, food, tail):
         self.action = random.choice( Constants.DIRECTIONS )
 
     def user_input(self, type):

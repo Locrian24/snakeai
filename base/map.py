@@ -3,6 +3,7 @@
 from base.constants import Constants
 
 DIM = Constants.DIMENSION
+DIRS = Constants.DIRECTIONS
 
 # H = head of snake
 # T = tail of snake
@@ -26,6 +27,25 @@ class Map:
             pos_x, pos_y = o.grid_pos()
 
             self.grid[pos_y][pos_x] = o.state_name
+
+    def neighbours(self, grid_pos): #pos = grid_pos
+        all_adj = self.adj_pos(grid_pos)
+        neighbours = []
+        for a in all_adj:
+            adj_x, adj_y = a
+            if (0 <= adj_x < DIM and 0 <= adj_y < DIM):
+                neighbours.append((adj_x, adj_y))
+
+        return neighbours
+
+    def adj_pos(self, grid_pos): #pos = grid_pos
+        x_pos, y_pos = grid_pos
+        list = []
+        for d in DIRS:
+            d_x, d_y = d
+            list.append((x_pos+d_x, y_pos+d_y))
+
+        return list
 
     #sets grid to new empty grid
     # NOT OPTIMAL, could change so that it only clears positions used by objects

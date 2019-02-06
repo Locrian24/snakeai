@@ -48,7 +48,7 @@ class Game:
 
             self.draw_objects(self.snake)
             pygame.display.update()
-            self.player.frame_update()
+            self.player.frame_update(self.snake.map, self.snake.head, self.snake.tail, self.snake.food)
 
         pygame.quit()
         sys.exit()

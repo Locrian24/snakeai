@@ -28,5 +28,5 @@ class HumanPlayer:
         elif event.key == K_LEFT:
             self.action = (-1,0)
 
-    def frame_update(self):
+    def frame_update(self, map, head, food, tail):
         pass
