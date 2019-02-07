@@ -8,11 +8,11 @@ python3 main.py -p <player_model>
 ```
 
 Base game is controlled by various "players":
-  - HumanPlayer (\<human\>):    human controlled
-  - RandomPlayer (\<random\>):  randomly moves
+  - HumanPlayer (player_model = human):    human controlled
+  - RandomPlayer (player_model = random):  randomly moves
+  - BfsPlayer (player_model = bfs): implements BFS pathfinding to move along the shortest path to the food calculated each frame. Dies when the head is cut off from the food by its tail
 
   (Not yet implemented: )
-  - A* pathfinder
   - Genetic Algorithm
   - DNN (Deep Neural Network)
   - Hamiltonian cycling
