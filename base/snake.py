@@ -77,12 +77,13 @@ class Snake:
 
     def move(self):
         """ MOVES SNAKE IN CURRENT DIRECTION AND CHECKS EVENTS """
-
+        #print(self.current_direction)
         future_x, future_y = self.head.future_path(self.current_direction)
 
         self.alive = not self.is_dead(future_x, future_y) #CHECK IF DEAD IF IT MOVES [SO PYTHONIC!!!]
 
         if self.alive:
+
             #Head has same pos as food (eat the food)
             if future_x == self.food.pos[0] and future_y == self.food.pos[1]:
                 self.eat()
@@ -99,8 +100,10 @@ class Snake:
             self.map.update(self.objects)
 
     def eat(self):
-        tail_pos = [t.pos for t in self.tail]
-        self.food = Food(tail_pos)
+        avoid_pos = [t.pos for t in self.tail]
+        avoid_pos.append(self.head.pos)
+        avoid_pos.append(self.food.pos)
+        self.food = Food(avoid_pos)
 
         #add head duplicate to tail list
         temp = BodyPart(self.head.pos, 'T', self.head)

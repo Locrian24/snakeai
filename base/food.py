@@ -21,6 +21,7 @@ class Food:
             food_y = random.randint(0, DIMENSION-1) * 10
 
         self.pos = (food_x, food_y)
+        print("F:", self.pos)
 
     #returns position in grid
     def grid_pos(self):

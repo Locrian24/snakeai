@@ -26,7 +26,9 @@ class BfsPlayer:
             for neighbour in map.neighbours(current):
                 if neighbour == end:
                     path += [current, neighbour]
-                    return self.get_dir_of(path[1], path[0])
+                    if len(path) > 1:
+                        return self.get_dir_of(path[1], path[0])
+
                 if neighbour in visited:
                     continue
                 queue.append((neighbour, path + [current]))

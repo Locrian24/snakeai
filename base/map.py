@@ -27,6 +27,7 @@ class Map:
             pos_x, pos_y = o.grid_pos()
 
             self.grid[pos_y][pos_x] = o.state_name
+            
 
     def neighbours(self, grid_pos): #pos = grid_pos
         all_adj = self.adj_pos(grid_pos)

@@ -34,9 +34,13 @@ class Game:
                     player.user_input(event)
 
             #THIS IS WHERE THE NEW DIRECTION IS SET FROM THE PLAYER MODEL
+            self.player.frame_update(self.snake.map, self.snake.head, self.snake.tail, self.snake.food)
             direction = self.player.action
-
-            self.snake.set_direction(direction)
+            if direction:
+                self.snake.set_direction(direction)
+            else:
+                print("NO PATH TO FOOD")
+                self.snake.alive = False
 
             pygame.time.Clock().tick(Constants.FPS)
             self.SCREEN.fill((255,255,255))
@@ -48,7 +52,6 @@ class Game:
 
             self.draw_objects(self.snake)
             pygame.display.update()
-            self.player.frame_update(self.snake.map, self.snake.head, self.snake.tail, self.snake.food)
 
         pygame.quit()
         sys.exit()
