@@ -16,8 +16,4 @@ Base game is controlled by various "players":
   - Genetic Algorithm
   - DNN (Deep Neural Network)
   - Hamiltonian cycling
-  - The SuperPlayer: a combination of all AI players based on Coding Bullet's SnakeFusion (linked at bottom)
-
-
-Coding Bullet's SnakeFusion:
-  <i>https://github.com/Code-Bullet/SnakeFusion</i>
+  - BattleSnake (combination of behavioural coding to be used as a template for Battlesnake 2019)
